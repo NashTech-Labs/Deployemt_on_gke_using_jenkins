@@ -25,13 +25,13 @@ pipeline{
             } 
         }    
         }
-    //    stage('Docker build'){
-    //     steps{
-    //         script{
-    //             sh 'docker build -t shivampateriyaknoldus/petclinic:0.1 . '
-    //         }
-    //     }
-    //    }
+       stage('Docker build'){
+        steps{
+            script{
+                sh 'docker build -t shivampateriyaknoldus/petclinic:0.1 . '
+            }
+        }
+       }
        stage('Docker login and push'){
         steps{
             withCredentials([string(credentialsId: 'dockersecret', variable: 'TOKEN')]) {
